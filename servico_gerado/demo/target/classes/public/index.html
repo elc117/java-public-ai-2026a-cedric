@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recomendação de Squads</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Recomendação de Squads</h1>
+    <p>Empresa / Gestão de projetos — monte squads a partir do seu time.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Funcionários</h2>
+      <table id="tabelaFuncionarios">
+        <thead>
+          <tr>
+            <th>Nome</th><th>Cargo</th><th>Senioridade</th>
+            <th>Especialidade</th><th>Horas/sem</th><th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <details>
+        <summary>+ Adicionar funcionário</summary>
+        <form id="formFuncionario" class="form-grid">
+          <input name="nome" placeholder="Nome" required />
+          <select name="cargo" required></select>
+          <select name="senioridade" required></select>
+          <input name="especialidade" placeholder="Especialidade (ex: Java)" required />
+          <input name="horasDisponiveis" type="number" min="1" max="40" value="40" required />
+          <button type="submit">Adicionar</button>
+        </form>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Recomendar squads</h2>
+      <form id="formRecomendar" class="form-grid">
+        <label>
+          Estratégia
+          <select name="strategy" id="selectStrategy" required></select>
+        </label>
+        <label>
+          Modo
+          <select name="modo" id="selectModo">
+            <option value="tamanho">Tamanho da equipe</option>
+            <option value="numero">Número de equipes</option>
+          </select>
+        </label>
+        <label>
+          Valor
+          <input name="valor" id="inputValor" type="number" min="1" value="3" required />
+        </label>
+        <button type="submit">Recomendar</button>
+        <button type="button" id="btnGerarNovamente" disabled>Gerar novamente</button>
+      </form>
+      <p id="descStrategy" class="desc"></p>
+    </section>
+
+    <section class="card" id="cardResultado" hidden>
+      <h2>Squads geradas</h2>
+      <div id="resultado" class="squads"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
